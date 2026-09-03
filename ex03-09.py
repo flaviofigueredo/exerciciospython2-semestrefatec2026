@@ -53,7 +53,7 @@ def somanumeros():
             print(lista[i], end=' + ')
     print(soma)
 
-# Exercício 6 (BETA)
+# Exercício 6
 def somanumerosantinulo():
     soma = 0
     lista = []
