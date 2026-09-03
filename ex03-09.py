@@ -57,23 +57,34 @@ def somanumeros():
 def somanumerosantinulo():
     soma = 0
     lista = []
-    for i in range (1,11):
-        prossegue = False
-        while prossegue == False:
-            n = int(input(f'Digite o {i}º Número Inteiro: '))
-            if n <= 0:
-                print('Número Inválido')
-            else:
-                prossegue = True
-                lista.insert(i-1, n)
-                soma += n
-    print('Demonstração do cálculo:', end=' ')
-    for i in range (0, 10):
-        if i == 9:
-            print(lista[i], end=' = ')
+    termina = False
+    while termina == False:
+        for i in range (1,11):
+            if termina == True:
+                break
+            prossegue = False
+            while prossegue == False:
+                n = int(input(f'Digite o {i}º Número Inteiro: '))
+                if n < 0:
+                    print('Número Inválido')
+                elif n == 0:
+                    termina = True
+                    break
+                else:
+                    prossegue = True
+                    lista.insert(i-1, n)
+                    soma += n
+        if termina == False:
+            print('Demonstração do cálculo:', end=' ')
+            for i in range (0, 10):
+                if i == 9:
+                    print(lista[i], end=' = ')
+                else:
+                    print(lista[i], end=' + ')
+            print(soma)
+            termina = True
         else:
-            print(lista[i], end=' + ')
-    print(soma)
+            termina = True
 
 # Index
 while True:
