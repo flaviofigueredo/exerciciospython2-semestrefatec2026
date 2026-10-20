@@ -31,8 +31,14 @@ while continua == True:
     op = int(input("Digite a opção que deseja: "))
     match op:
         case 1:
+            bloqueio = True
             nome = str(input("Digite seu nome: ") )
-            nota = float(input("Digite sua nota: ") )
+            while bloqueio == True:
+                nota = float(input("Digite sua nota: ") )
+                if nota < 0 or nota > 10:
+                    print('Nota Inválida, digite novamente')
+                else:
+                    bloqueio = False
             opc = str(input("Confirma ? [S/N]: ")).upper().strip()[0]
             match opc:
                 case 'S':
@@ -46,9 +52,21 @@ while continua == True:
         case 2:
             listar_nota()
         case 3:
-            index = (int(input("Digite o index do aluno que deseja alterar")))
+            bloqueio = True
+            contem = False
+            while contem == False:
+                index = (int(input("Digite o index do aluno que deseja alterar")))
+                if index > len(alunolist - 1) or index < 0:
+                    print('Index Inválido, digite novamente')
+                else:
+                    contem = True
             nome = str(input("Digite seu nome: ") )
-            nota = float(input("Digite sua nota: ") )
+            while bloqueio == True:
+                nota = float(input("Digite sua nota: ") )
+                if nota < 0 or nota > 10:
+                    print('Nota Inválida, digite novamente')
+                else:
+                    bloqueio = False
             opc = str(input("Confirma ? [S/N]: ")).upper().strip()[0]
             match opc:
                 case 'S':
@@ -60,7 +78,13 @@ while continua == True:
                 case _:
                     print('Digite corretamente')
         case 4:
-            index = (int(input("Digite o index do aluno que deseja excluir")))
+            contem = False
+            while contem == False:
+                index = (int(input("Digite o index do aluno que deseja alterar")))
+                if index > len(alunolist - 1) or index < 0:
+                    print('Index Inválido, digite novamente')
+                else:
+                    contem = True
             opc = str(input("Confirma ? [S/N]: ")).upper().strip()[0]
             match opc:
                 case 'S':
